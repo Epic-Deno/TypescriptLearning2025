@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-23 11:05:19
+ * @LastEditTime: 2024-12-23 11:06:30
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -118,3 +118,10 @@ function greet(name: string): string {
 greet('Pony'); // hello Pony
 // greet(1); // error, you can not pass a number to greet function
 // greet('pony', 1); // error, you can not pass two parameters to greet function
+
+// 多个参数可选时候
+function greet2(name: string, age?: number): string {
+    return `hello ${name}`;
+}
+greet2('Pony'); // hello Pony
+greet2('Pony', 18); // hello Pony
