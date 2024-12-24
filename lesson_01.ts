@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 17:09:14
+ * @LastEditTime: 2024-12-24 17:12:15
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -276,3 +276,43 @@ class Cellphone2 implements RadioWithBattery {
 }
 
 // 3.3 枚举 enum
+
+// 数字枚举
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right
+}
+console.log(Direction.Up); // 0 直接访问
+console.log(Direction[0]); // Up 下标访问
+
+// 字符串枚举
+enum Direction2 {
+    Up = 'up',
+    Down = 'down',
+    Left = 'left',
+    Right = 'right'
+}
+console.log(Direction2.Up); // up 直接访问
+console.log(Direction2['up']); // Up 下标访问
+
+// 异构枚举
+enum Direction3 {
+    Up = 'up',
+    Down = 1,
+    Left,
+    Right
+}
+console.log(Direction3.Up); // up 直接访问
+console.log(Direction3[1]); // Down 下标访问
+
+// 常量枚举
+const enum Direction4 {
+    Up = 'up',
+    Down = 1,
+    Left,
+    Right
+}
+console.log(Direction4.Up); // up 直接访问
+console.log(Direction4[1]); // Down 下标访问
