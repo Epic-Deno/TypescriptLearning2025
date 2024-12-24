@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 16:59:11
+ * @LastEditTime: 2024-12-24 17:05:21
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -198,3 +198,31 @@ function getPet(pet: Dog | Cat) {
         pet.miao();
     }
 }
+
+
+// 3.0 类 class
+class Animal2 {
+    name: string;
+    private age: number;
+    protected weight: number;
+    constructor(name: string) {
+        this.name = name;
+    }
+    run() {
+        return `${this.name} is running`;
+    }
+}
+class Dog2 extends Animal2 {
+    private age2: string;
+    private weight2: number;
+    constructor(name: string) {
+        super(name);
+        this.weight2 = super.weight; // you can access weight property
+        console.log(this.name, this.age2); // you can access name property
+        // this.age2 = super.age; // error, you can not access age property
+    }
+    bark() {
+        return `${this.name} is barking`;
+    }
+}
+
