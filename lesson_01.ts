@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 17:05:21
+ * @LastEditTime: 2024-12-24 17:09:14
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -226,3 +226,53 @@ class Dog2 extends Animal2 {
     }
 }
 
+// 3.1 抽象类 abstract class
+abstract class Animal3 {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+    abstract run(): void;
+}
+class Dog3 extends Animal3 {
+    run() {
+        console.log(`${this.name} is running`);
+    }
+}
+
+// 3.2 类实现接口 implements
+interface Radio {
+    switchRadio(): void;
+}
+interface Battery {
+    checkBatteryStatus(): void;
+}
+class Car implements Radio {
+    switchRadio() {
+        console.log('switchRadio');
+    }
+}
+// 接口可以多实现
+class Cellphone implements Radio, Battery {
+    switchRadio() {
+        console.log('switchRadio');
+    }
+    checkBatteryStatus() {
+        console.log('checkBatteryStatus');
+    }
+}
+
+// 接口之前可以继承
+interface RadioWithBattery extends Radio {
+    checkBatteryStatus(): void;
+}
+class Cellphone2 implements RadioWithBattery {
+    switchRadio() {
+        console.log('switchRadio');
+    }
+    checkBatteryStatus() {
+        console.log('checkBatteryStatus');
+    }
+}
+
+// 3.3 枚举 enum
