@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 16:54:33
+ * @LastEditTime: 2024-12-24 16:56:20
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -151,9 +151,22 @@ haha2.valueOf(); // you can use valueOf method
 let personA: { name: string, age: number } = { name: 'Pony', age: 18 };
 // personA = {name: 'Pony'}; // error, you must pass age property
 
-// 2.8 断言 type interface
+// 2.8 断言 
+// 我们就用 as 来进行断言
 function getLength(target: string | number): number {
     const targetStr = target as string;
     return targetStr.length; // (<string>target).length is equal to (target as string).length
 }
-
+// 另一种写法是<类型>两者都一样
+function getLength2(target: string | number): number {
+    const targetStr = <string>target;
+    return targetStr.length;
+}
+// 当你明确的知道一个联合类型的变量是一个共有的属性或方法时
+function getLength3(target: string | number): number {
+    if ((<string>target).length) {
+        return (<string>target).length;
+    } else {
+        return target.toString().length;
+    }
+}
