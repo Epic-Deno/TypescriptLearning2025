@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 16:50:44
+ * @LastEditTime: 2024-12-24 16:54:33
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -148,3 +148,12 @@ let haha2: string | number;
 haha2.valueOf(); // you can use valueOf method
 
 // 2.7 对象类型 object
+let personA: { name: string, age: number } = { name: 'Pony', age: 18 };
+// personA = {name: 'Pony'}; // error, you must pass age property
+
+// 2.8 断言 type interface
+function getLength(target: string | number): number {
+    const targetStr = target as string;
+    return targetStr.length; // (<string>target).length is equal to (target as string).length
+}
+
