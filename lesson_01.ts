@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 17:18:08
+ * @LastEditTime: 2024-12-24 17:23:41
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -356,3 +356,45 @@ class Queue<T> {
         return this.data.shift();
     }
 }
+
+// 接口中使用泛型‘
+interface KeyPair<T, U> {
+    key: T;
+    value: U;
+}
+let kp1: KeyPair<number, string> = { key: 1, value: 'str' };
+let kp2: KeyPair<string, string> = { key: 'str', value: 'str' };
+
+// 数组中使用泛型
+let arr4: number[] = [1, 2, 3];
+let arr5: Array<number> = [1, 2, 3];
+let arr6: Array<any> = [1, '2', true];
+
+// 3.5 类型别名
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+function getName6(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
+    }
+}
+
+// 3.6 交叉类型
+interface DogInterface {
+    run(): void;
+}
+interface CatInterface {
+    jump(): void;
+}
+let pet: DogInterface & CatInterface = {
+    run() { },
+    jump() { }
+}
+
+// 3.7 联合类型
+let a: string | number = 'a';
+let b: 'a' | 'b' | 'c';
+let c: 1 | 2 | 3;
