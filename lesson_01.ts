@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 16:45:08
+ * @LastEditTime: 2024-12-24 16:50:44
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -135,3 +135,16 @@ let mySum: (num1: number, num2: number) => number = sum;
 type ISum = (num1: number, num2: number) => number;
 let mySum2: ISum = sum;
 
+// 2.6 联合类型 union type
+let haha: string | number;
+haha = 'haha';
+haha = 18;
+// haha = true; // error, you can not pass a boolean to haha
+
+// 在没有赋值之前只能通过访问共同的属性和方法
+let haha2: string | number;
+// console.log(haha2.toString()); // error, you can not use toString method
+// haha2.length // error, you can not use length property
+haha2.valueOf(); // you can use valueOf method
+
+// 2.7 对象类型 object
