@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 16:56:20
+ * @LastEditTime: 2024-12-24 16:59:11
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -168,5 +168,33 @@ function getLength3(target: string | number): number {
         return (<string>target).length;
     } else {
         return target.toString().length;
+    }
+}
+
+// 2.9 类型守卫 type guard
+function getLength4(target: string | number): number {
+    if (typeof target === 'string') {
+        return target.length;
+    } else {
+        return target.toString().length;
+    }
+}
+// instanceof
+class Dog {
+    wang() {
+        console.log('wang');
+    }
+}
+class Cat {
+    miao() {
+        console.log('miao');
+    }
+}
+function getPet(pet: Dog | Cat) {
+    if (pet instanceof Dog) {
+        pet.wang();
+    }
+    if (pet instanceof Cat) {
+        pet.miao();
     }
 }
