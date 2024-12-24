@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-24 17:12:15
+ * @LastEditTime: 2024-12-24 17:18:08
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -316,3 +316,43 @@ const enum Direction4 {
 }
 console.log(Direction4.Up); // up 直接访问
 console.log(Direction4[1]); // Down 下标访问
+
+// 3.4 泛型 generics
+function createArray(length: number, value: any): Array<any> {
+    return new Array(length).fill(value);
+}
+createArray(3, 'x'); // ['x', 'x', 'x']
+
+// 用T来代表泛型'
+function createArray2<T>(length: number, value: T): Array<T> {
+    return new Array(length).fill(value);
+}
+createArray2(3, 'x'); // ['x', 'x', 'x']
+
+// 多个泛型
+function swap<T, U>(tuple: [T, U]): [U, T] {
+    return [tuple[1], tuple[0]];
+}
+swap([7, 'seven']); // ['seven', 7]
+
+// 泛型约束
+interface LengthWise {
+    length: number;
+}
+function getLength5<T extends LengthWise>(target: T): number {
+    return target.length;
+}
+getLength5('abc'); // 3
+getLength5([1, 2, 3]); // 3
+getLength5({ length: 3 }); // 3
+
+// 类中使用泛型
+class Queue<T> {
+    private data = [];
+    push(item: T) {
+        return this.data.push(item);
+    }
+    pop(): T {
+        return this.data.shift();
+    }
+}
