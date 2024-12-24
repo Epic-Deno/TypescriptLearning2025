@@ -3,7 +3,7 @@
  * @Author: zhang zhen
  * @Date: 2024-12-23 10:39:12
  * @LastEditors: zhang zhen
- * @LastEditTime: 2024-12-23 11:06:30
+ * @LastEditTime: 2024-12-24 16:45:08
  * @FilePath: /TypescriptLearning2025/lesson_01.ts
  */
 
@@ -125,3 +125,13 @@ function greet2(name: string, age?: number): string {
 }
 greet2('Pony'); // hello Pony
 greet2('Pony', 18); // hello Pony
+
+// 定义函数类型
+const sum = (num1: number, num2: number): number => {
+    return num1 + num2;
+}
+let mySum: (num1: number, num2: number) => number = sum;
+// 采用type定义函数类型
+type ISum = (num1: number, num2: number) => number;
+let mySum2: ISum = sum;
+
